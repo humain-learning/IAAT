@@ -111,12 +111,16 @@ def register_to_webinar(lead,webinar):
     
     if r.status_code ==201:
         frappe.db.set_value("CRM Lead", lead.name, "custom_registered_for_webinar", 1)
-        webinar.append("registrants", {
+        frappe.get_doc({
+			"doctype": "Webinar Registrant",
+			"parent": webinar.name,
+			"parenttype": "Zoom Webinar",
+			"parentfield": "registrants",
 			"registrant": lead.name,
 			"registered_on": frappe.utils.now_datetime()
-		})
-        webinar.save(ignore_permissions=True)
+		}).insert(ignore_permissions=True)
         return
+    
     else:
         status_code, err_code, err_msg = extract_error(r)
         failed = frappe.get_doc({
