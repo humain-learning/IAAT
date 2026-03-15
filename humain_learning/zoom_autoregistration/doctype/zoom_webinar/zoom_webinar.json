@@ -12,7 +12,9 @@
   "fetch_webinar_details",
   "column_break_mysp",
   "start_time",
-  "created_at"
+  "created_at",
+  "section_break_wgim",
+  "registrants"
  ],
  "fields": [
   {
@@ -57,12 +59,22 @@
   {
    "fieldname": "column_break_mysp",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_wgim",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "registrants",
+   "fieldtype": "Table",
+   "label": "Registrants",
+   "options": "Webinar Registrant"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-02-18 14:50:11.452927",
+ "modified": "2026-03-15 13:11:22.761340",
  "modified_by": "Administrator",
  "module": "Zoom Autoregistration",
  "name": "Zoom Webinar",
