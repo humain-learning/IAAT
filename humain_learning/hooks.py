@@ -1,7 +1,7 @@
 app_name = "humain_learning"
-app_title = "Humain Learning"
+app_title = "I Am A Teacher"
 app_publisher = "Raghav Kaul"
-app_description = "Customizations for Humain Learning"
+app_description = "Customizations for IAAT"
 app_email = "raghav.kaul@humainlearning.ai"
 app_license = "mit"
 
