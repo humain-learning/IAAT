@@ -7,15 +7,15 @@ from .utils import extract_error
 ZOOM_BASE_URL = "https://api.zoom.us/v2"
 
 @frappe.whitelist()
-def fetch_webinar(webinar_id):
+def fetch_webinar(type,id):
 
-    if not webinar_id:
-        frappe.throw("Please provide a Webinar ID.")
+    if not id:
+        frappe.throw("Please provide an ID.")
 
-    webinar_id = webinar_id.replace(" ", "")
+    id = id.replace(" ", "")
     token_doc = frappe.get_single("Zoom OAuth Token")
 
-    url = f"{ZOOM_BASE_URL}/webinars/{webinar_id}"
+    url = f"{ZOOM_BASE_URL}/{type}/{id}"
     headers = {
         "Authorization": f"{token_doc.token_type} {token_doc.get_password('access_token')}"
     }
@@ -41,13 +41,13 @@ def fetch_webinar(webinar_id):
         err_msg = data.get("message", "No message provided")
 
         if err_code == 300:
-            frappe.throw("Webinar ID is invalid. Please check Webinar ID and try again.")
+            frappe.throw("ID is invalid. Please check and try again.")
 
         elif err_code == 200:
             frappe.throw("Account is not subscribed to the Webinar Plan.")
 
         elif response.status_code == 404:
-            frappe.throw("Webinar does not exist. Please check Webinar ID and try again.")
+            frappe.throw("Webinar/Meeting does not exist. Please confirm Type and ID are correct")
 
         elif response.status_code == 429:
             frappe.throw("Too many requests. Please try again later.")
@@ -71,7 +71,7 @@ def fetch_webinar(webinar_id):
         "host_email": data.get("host_email"),
     }
     
-    
+
 
 def register_to_webinar(lead,webinar):
     

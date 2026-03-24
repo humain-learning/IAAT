@@ -4,11 +4,15 @@
 from frappe.model.document import Document
 import frappe
 from humain_learning.zoom_autoregistration.api import fetch_webinar
-class ZoomWebinar(Document):
+class ZoomMeeting(Document):
 	
 	def validate(self):
-		if not self.webinar_id:
+		if not self.id:
 			frappe.throw("Webinar ID is required.")
 
 	def on_save(self):
-		fetch_webinar(self.webinar_id)
+		res = fetch_webinar(self.id)
+		self.topic = res.get("topic")
+		self.start_time = res.get("start_time")
+		self.created_at = res.get("created_at")
+		self.host_email = res.get("host_email")

@@ -1,12 +1,13 @@
 // Copyright (c) 2026, Raghav Kaul and contributors
 // For license information, please see license.txt
 
-frappe.ui.form.on("Zoom Webinar", {
+frappe.ui.form.on("Zoom Meeting", {
     fetch_webinar_details(frm) {
         frappe.call({
             method: "humain_learning.zoom_autoregistration.api.fetch_webinar",
             args: {
-                webinar_id: frm.doc.webinar_id
+				type: frm.doc.type.to_lowercase(),
+                id: frm.doc.webinar_id
             },
             freeze: true,
             callback(r) {

@@ -5,6 +5,6 @@
 from frappe.tests.utils import FrappeTestCase
 from frappe.utils.data import now_datetime
 
-class TestZoomWebinar(FrappeTestCase):
+class TestZoomMeeting(FrappeTestCase):
 	pass
 

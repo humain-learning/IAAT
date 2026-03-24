@@ -1,29 +1,23 @@
 {
  "actions": [],
- "autoname": "field:webinar_id",
+ "autoname": "field:id",
  "creation": "2026-02-17 15:26:44.687416",
  "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "webinar_id",
+  "type",
   "topic",
   "host_email",
   "fetch_webinar_details",
   "column_break_mysp",
+  "id",
   "start_time",
   "created_at",
   "section_break_wgim",
   "registrants"
  ],
  "fields": [
-  {
-   "fieldname": "webinar_id",
-   "fieldtype": "Data",
-   "label": "Webinar ID",
-   "reqd": 1,
-   "unique": 1
-  },
   {
    "fieldname": "topic",
    "fieldtype": "Data",
@@ -69,15 +63,29 @@
    "fieldtype": "Table",
    "label": "Registrants",
    "options": "Webinar Registrant"
+  },
+  {
+   "fieldname": "id",
+   "fieldtype": "Data",
+   "label": "Meeting/Webinar ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "Meeting",
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Meeting\nWebinar"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-03-15 13:11:22.761340",
+ "modified": "2026-03-19 12:44:41.416892",
  "modified_by": "Administrator",
  "module": "Zoom Autoregistration",
- "name": "Zoom Webinar",
+ "name": "Zoom Meeting",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [

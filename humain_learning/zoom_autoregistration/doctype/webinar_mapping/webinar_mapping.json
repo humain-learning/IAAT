@@ -19,7 +19,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Webinar",
-   "options": "Zoom Webinar",
+   "options": "Zoom Meeting",
    "reqd": 1
   },
   {
@@ -59,7 +59,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-02-23 11:04:33.918906",
+ "modified": "2026-03-19 12:44:56.478988",
  "modified_by": "Administrator",
  "module": "Zoom Autoregistration",
  "name": "Webinar Mapping",
